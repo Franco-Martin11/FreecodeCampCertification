@@ -21,6 +21,7 @@ const UseFetchQuotes = (): {
 
   const fetchData = async () => {
     try {
+      setIsLoading(true);
       const response = await fetch(url, options);
       const json: quoteObject[] = await response.json();
       if (response.status !== 200) {
@@ -37,7 +38,8 @@ const UseFetchQuotes = (): {
 
   useEffect(() => {
     fetchData(); // Llama a la función para obtener los datos al cargar el componente
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [url]);
 
   return { data, isLoading, error, fetchData };
 };

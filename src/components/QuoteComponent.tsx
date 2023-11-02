@@ -10,6 +10,7 @@ const QuoteComponent = ({
   quote: string;
   author: string;
   category: string;
+  isLoading: boolean | null;
   reFetch: () => void;
 }) => {
   const [colorIndex, setColorIndex] = useState<number>(getRandomInt(10));
